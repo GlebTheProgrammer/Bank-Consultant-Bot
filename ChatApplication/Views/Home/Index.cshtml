@@ -1,4 +1,7 @@
-﻿<head>
+﻿@using ChatApplication.Models
+@model List<ChatMessage>
+
+<head>
     <link rel="stylesheet" href=~/css/chat.css>
 </head>
 
@@ -29,24 +32,12 @@
             <div class="chat-box">
 
                 <div class="chat-messages">
-                    @for(int i = 0; i < 6; i++)
+                    @for(int i = 0; i < Model.Count; i++)
                     {
                         <div class="message">
-                            <header>Gleb:</header>
-                            <p>Hello test message!</p>
-                            <footer>16:00</footer>
-                        </div>
-
-                        <div class="message">
-                            <header>Aliaksandr:</header>
-                            <p>Hello world. Hello world. Hello world. Hello world. Hello world. Hello world. Hello world. Hello world. Hello world. Hello world. </p>
-                            <footer>18:00</footer>
-                        </div>
-
-                        <div class="message">
-                            <header>Ilya:</header>
-                            <p>Im Writing bot!</p>
-                            <footer>19:00</footer>
+                            <header>@Model[i].SenderName</header>
+                            <p>@Model[i].Message</p>
+                            <footer>@Model[i].MessageTime.ToString("HH:mm")</footer>
                         </div>
                     }
 
@@ -54,10 +45,12 @@
 
             </div>
 
-            <div class="chat-down">
-                <input class="user-input" placeholder="Напишите Сообщение..."/>
-                <button class="fa fa-telegram button-send-message"></button>
-            </div>
+
+                <form class="chat-down" asp-controller="Home" asp-action="CreateMessage">
+                    <input name="message" type="text" maxlength="255" class="user-input" placeholder="Напишите Сообщение..."/>
+                    <button type="submit" class="fa fa-telegram button-send-message"></button>
+                </form>
+
 
             <h1 class="bot-name">Помощник ВТБ</h1>
             <h1 class="bot-description">бот</h1>

@@ -135,5 +135,21 @@ namespace ChatApplication.Domain
                 return false;
             }
         }
+
+        public bool AddUserMesage(UserMessage message)
+        {
+            try
+            {
+                context.UserMessages.Add(message);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        //Adding Data Into Db Section Ends Here
     }
 }

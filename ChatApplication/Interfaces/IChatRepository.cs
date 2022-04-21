@@ -25,6 +25,7 @@ namespace ChatApplication.Interfaces
         //Adding Data Into Db Section Starts Here
 
         public bool AddNewUser(User user);
+        public bool AddUserMesage(UserMessage message);
 
         //Adding Data Into Db Section Ends Here
 

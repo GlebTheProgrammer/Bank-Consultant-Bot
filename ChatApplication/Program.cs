@@ -1,7 +1,8 @@
-
 using ChatApplication.DbConfiguration;
 using ChatApplication.Domain;
 using ChatApplication.Interfaces;
+using ChatApplication.Mapper;
+using ChatApplication.Mocks;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,7 +15,14 @@ builder.Services.AddDbContext<ChatDbContext>(opt => opt.UseSqlServer
     (builder.Configuration.GetConnectionString("ChatConnection")));
 
 //Dependency Injection
+
+//Sql Service
 builder.Services.AddScoped<IChatRepository, SqlChatRepository>();
+
+//Mock Service
+//builder.Services.AddScoped<IChatRepository, MockChatRepository>();
+
+builder.Services.AddScoped<IChatMapper, ChatMapper>();
 
 var app = builder.Build();
 //app.UseMvcWithDefaultRoute();
@@ -27,6 +35,6 @@ app.UseStaticFiles();
 app.MapControllerRoute(
     name: "default/hello",
     //pattern: "{controller=Home}/{action=Index}/{id?}");
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Authentication}/{action=Index}/{id?}");
 
 app.Run();
