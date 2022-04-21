@@ -20,6 +20,7 @@ namespace ChatApplication.Controllers
 
         public IActionResult LoginIntoTheChat(LoginUser loginUser)
         {
+            loginUser.Email = loginUser.Email.ToLower();
             var user = repository.GetUserByInputData(loginUser);
             if(user == null)
             {
@@ -41,6 +42,7 @@ namespace ChatApplication.Controllers
 
         public IActionResult AddUserIntoDatabase(User user)
         {
+            user.Email = user.Email.ToLower();
             repository.AddNewUser(user);
             return View("Index");
         }
