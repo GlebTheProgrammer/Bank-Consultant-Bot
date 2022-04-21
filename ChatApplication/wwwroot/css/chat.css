@@ -1,0 +1,21 @@
+﻿.chat {
+    flex-grow: 1;
+    background-color: aqua;
+    display: flex;
+    flex-direction: row;
+}
+
+.chat-nav {
+    flex-grow: 1;
+    background-color: green;
+}
+
+.chat-body {
+    flex-grow: 2;
+    background-color: red;
+}
+
+.chat-advertisment {
+    flex-grow: 1;
+    background-color: white;
+}

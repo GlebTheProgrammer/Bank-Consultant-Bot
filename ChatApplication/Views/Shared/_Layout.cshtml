@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie-edge">
+        <title>ChatApplication</title>
+
+        <link rel="stylesheet" href=~/css/site.css>
+        <link rel="stylesheet" href=~/css/login.css>
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"><link rel="stylesheet" href="./style.css">
+    </head>
+
+    <body>
+@*        <div class="navbar">
+
+        </div>
+
+        <div class="main">
+            <div class="side-menu">
+
+                <a class="room-button" href="#">
+                    Room
+                </a>
+
+                <a class="room-button" id="create-room-btn" href="#">
+                    <strong>+</strong>
+                </a>
+
+            </div>
+            <div class="chat">
+                @RenderBody()
+            </div>
+        </div>*@
+
+        @RenderBody()
+
+        <script src="~/js/site.js"></script>
+        @RenderSection("Scripts", false)
+
+    </body>
+
+</html>
