@@ -5,11 +5,63 @@
 <body>
     <div class="chat">
         <div class="chat-nav">
-
+            <img class="img-rectangle-2" src="~/Images/Rectangle 19.png" />
+            <img class="img-rectangle-1" src="~/Images/Rectangle 18.png" />
+            <h1 class="text up">Чем Я Могу</h1>
+            <h1 class="text down">Помочь?</h1>
+            <button class="button-nav first">Узнать Баланс</button>
+            <button class="button-nav second">Добавить Новый Счёт</button>
+            <button class="button-nav third">Позвать Консультанта</button>
+            <button class="button-nav forth">Курс Доллара к Белорусскому Рублю</button>
+            <button class="button-nav fifth">Ближайшее Отделение Банка</button>
+            <button class="button-nav sixth">Время Работы Банка</button>
+            <button class="button-nav seventh">Реквизиты Банка</button>
+            <button class="button-nav eighth">Адреса Банкоматов</button>
         </div>
 
         <div class="chat-body">
+            <div class="chat-top"></div>
+            <div class="chat-left"></div>
+            <div class="chat-right"></div>
 
+            <img style="width: 80%; height: 90%; margin-left: -10%; top: 5%;" class="img-rectangle-1 disable-select" src="~/Images/Component 6.png" />
+
+            <div class="chat-box">
+
+                <div class="chat-messages">
+                    @for(int i = 0; i < 6; i++)
+                    {
+                        <div class="message">
+                            <header>Gleb:</header>
+                            <p>Hello test message!</p>
+                            <footer>16:00</footer>
+                        </div>
+
+                        <div class="message">
+                            <header>Aliaksandr:</header>
+                            <p>Hello world. Hello world. Hello world. Hello world. Hello world. Hello world. Hello world. Hello world. Hello world. Hello world. </p>
+                            <footer>18:00</footer>
+                        </div>
+
+                        <div class="message">
+                            <header>Ilya:</header>
+                            <p>Im Writing bot!</p>
+                            <footer>19:00</footer>
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+
+            <div class="chat-down">
+                <input class="user-input" placeholder="Напишите Сообщение..."/>
+                <button class="fa fa-telegram button-send-message"></button>
+            </div>
+
+            <h1 class="bot-name">Помощник ВТБ</h1>
+            <h1 class="bot-description">бот</h1>
+            <img class="bot-icon" src="~/Images/bison.jpg" />
         </div>
 
         <div class="chat-advertisment">

@@ -6,16 +6,276 @@
 }
 
 .chat-nav {
-    flex-grow: 1;
-    background-color: green;
+    z-index: 11;
+    flex-grow: 3;
+    background-color: white;
 }
 
 .chat-body {
-    flex-grow: 2;
-    background-color: red;
+    flex-grow: 7;
+    background-color: #CFEAFF;
 }
 
 .chat-advertisment {
-    flex-grow: 1;
+    flex-grow: 3;
     background-color: white;
+}
+
+.text {
+    color: aliceblue;
+    position: absolute;
+    font-weight: 700;
+    font-size: 220%;
+    width: auto;
+    height: auto;
+    margin-left: 1%;
+}
+
+.up {
+    top: 10px;
+}
+
+.down {
+    top: 50px;
+}
+
+.img-rectangle-1 {
+    top: 30px;
+    position: absolute;
+    /*width: 330px;*/
+    width: 22%;
+    height: auto;
+
+}
+
+.img-rectangle-2 {
+    top: 75px;
+    position: absolute;
+    width: 22%;
+    height: auto;
+}
+
+.button-nav {
+    outline: none;
+    height: 40px;
+    text-align: center;
+    width: 19%;
+    border-radius: 40px;
+    background: #fff;
+    border: 2px solid #6281BE;
+    color: #6281BE;
+    letter-spacing: 1px;
+    text-shadow: 0;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: absolute;
+    margin-left: 2%;
+    font-size: 15px;
+}
+
+.button-nav:hover {
+    color: white;
+    background: #6281BE;
+}
+
+.first {
+    top: 200px;
+}
+
+.second {
+    top: 270px;
+}
+
+.third {
+    top: 340px;
+}
+
+.forth {
+    top: 410px;
+}
+
+.fifth {
+    top: 480px;
+}
+
+.sixth {
+    top: 550px;
+}
+
+.seventh {
+    top: 620px;
+}
+
+.eighth {
+    top: 690px;
+}
+
+.chat-top {
+    z-index: 10;
+    position: absolute;
+    background-color: #303D7F;
+    height: 105px;
+    width: 53.8%;
+}
+
+.chat-left {
+    z-index: 10;
+    position: absolute;
+    background-color: #303D7F;
+    height: 100%;
+    width: 0.5%;
+}
+
+.chat-right {
+    z-index: 10;
+    position: absolute;
+    background-color: #303D7F;
+    height: 100%;
+    width: 0.5%;
+    margin-left: 53.8%;
+}
+
+.chat-down {
+    z-index: 10;
+    position: absolute;
+    background-color: #303D7F;
+    height: 70px;
+    width: 53.8%;
+    top: 683px;
+    display: flex;
+    flex-direction: row;
+    padding: 0.7rem;
+}
+
+.bot-name {
+    z-index: 11;
+    top: 5px;
+    color: aliceblue;
+    position: absolute;
+    font-weight: 700;
+    font-size: 130%;
+    width: auto;
+    height: auto;
+    margin-left: 22%;
+}
+
+.bot-description {
+    z-index: 11;
+    color: aliceblue;
+    position: absolute;
+    font-weight: 500;
+    font-size: 130%;
+    width: auto;
+    height: auto;
+    margin-left: 26%;
+    top: 45px;
+}
+
+.bot-icon {
+    z-index: 11;
+    border-radius: 50%;
+    position: absolute;
+    height: 10%;
+    width: auto;
+    margin-left: 48.5%;
+    top: 2%;
+}
+
+.user-input {
+    width: 93%;
+    border-radius: 25px;
+    letter-spacing: 1px;
+    padding: 2%;
+    z-index: 11;
+}
+
+.button-send-message {
+    z-index: 11;
+    outline: none;
+    height: 70.5%;
+    text-align: center;
+    width: 6%;
+    background: #fff;
+    border: 2px solid #00AAFF;
+    color: #00AAFF;
+    letter-spacing: 1px;
+    text-shadow: 0;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: absolute;
+    margin-left: 2%;
+    font-size: 15px;
+    border-radius: 50%;
+    margin-left: 92%;
+}
+
+.button-send-message:hover {
+    color: white;
+    background: #00AAFF;
+}
+
+.fa-telegram {
+    font-size: 200%;
+}
+
+.chat-box {
+    z-index: 100;
+    width: 53.2%;
+    height: 76.7%;
+    position: absolute;
+    margin-left: 0.6%;
+    margin-top: 6.8%;
+
+    flex-direction: column;
+    display: flex;
+
+
+    overflow-y: auto;
+    max-height: 580px;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 0.5rem;
+}
+
+.disable-select {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.message {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0.2rem;
+}
+
+.message:first-child {
+    margin-top: auto;
+}
+
+.message > * {
+    padding: 0.2rem;
+}
+
+.message > header {
+    font-weight: bold;
+    min-width: 100px;
+    flex-grow: 1;
+    text-align: right;
+}
+
+.message > p {
+    margin: 0;
+    flex-grow: 5;
+}
+
+.message > footer {
+    min-width: 60px;
+    text-align: center;
 }
