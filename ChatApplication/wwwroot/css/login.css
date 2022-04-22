@@ -75,9 +75,22 @@
     display: inline-block;
     box-shadow: 0 3px 6px 1px #042d4657;
     text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.box-form .left .overlay span a:hover {
+    color: white;
+    background: #4e78d1;
 }
 
 .box-form .left .overlay span a:last-child {
+    background: #19b4e4;
+    margin-left: 30px;
+    text-decoration: none;
+}
+
+.box-form .left .overlay span a:last-child:hover {
     background: #1dcaff;
     margin-left: 30px;
     text-decoration: none;
