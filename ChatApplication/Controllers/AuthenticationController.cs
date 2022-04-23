@@ -20,6 +20,9 @@ namespace ChatApplication.Controllers
 
         public IActionResult LoginIntoTheChat(LoginUser loginUser)
         {
+            AuthenticationSettings.LoginAttempts++;
+            AuthenticationSettings.newAccoutCreated = false;
+
             loginUser.Email = loginUser.Email.ToLower();
             var user = repository.GetUserByInputData(loginUser);
             if(user == null)
@@ -36,14 +39,22 @@ namespace ChatApplication.Controllers
 
         public IActionResult CreateAccount()
         {
+            AuthenticationSettings.newAccoutCreated = false;
+            AuthenticationSettings.LoginAttempts = 0;
+
             var user = new User();
             return View(user);
         }
 
         public IActionResult AddUserIntoDatabase(User user)
         {
-            user.Email = user.Email.ToLower();
-            repository.AddNewUser(user);
+            if(user.Email != null)
+            {
+                user.Email = user.Email.ToLower();
+                repository.AddNewUser(user);
+
+                AuthenticationSettings.newAccoutCreated = true;
+            }
             return View("Index");
         }
     }

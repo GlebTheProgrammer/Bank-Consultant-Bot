@@ -15,7 +15,7 @@
 			<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 			<p style="text-align: center;">Мы помогаем людям воплощать планы, создавая лучшие финансовые решения.</p>
 			<p style="text-align: center;">ВТБ – это команда профессионалов, работающих для наших клиентов.</p>
-				<span>
+				<span style="align-content: center;">
 					<br />
 					<a href="https://www.vtb.by/o-banke"><i class="fa" aria-hidden="true"></i> Сайт с информацией о нас</a>
 					<a href="https://www.vtb.by/o-banke/missiya-i-cennosti#:~:text=%D0%92%D0%A2%D0%91%20%E2%80%93%20%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%BF%D0%BE%D0%B1%D0%B5%D0%B4%D0%B0!&text=%D0%9C%D1%8B%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B5!"><i class="fa" aria-hidden="true"></i> Наши цели и миссии</a>
@@ -26,14 +26,22 @@
 	
 		<div class="right">
 			<h5>Войти</h5>
+			@if(AuthenticationSettings.LoginAttempts != 0)
+			{
+				<h3 style="color:red;">Неудачная попытка входа. Попробуйте ещё раз.</h3>
+			}
+			else if(AuthenticationSettings.newAccoutCreated == true)
+			{
+				<h3 style="color:green;">Аккаунт успешно зарегистрирован.</h3>
+			}
 			<p>Ещё нет аккаунта? <a asp-area="" asp-controller="Authentication" asp-action="CreateAccount">Создай его прямо сейчас</a>. Это займёт меньше минуты.</p>
 			<form asp-controller="Authentication" asp-action="LoginIntoTheChat" method="post">
 				<div class="inputs">
-					<input asp-for=Nickname type="text" placeholder="Имя пользователя">
+					<input asp-for=Nickname type="text" required minlength=1 placeholder="Имя пользователя">
 					<br>
-					<input asp-for=Email type="email" placeholder="Адрес электронной почты">
+					<input asp-for=Email type="email" required minlength=1 placeholder="Адрес электронной почты">
 					<br>
-					<input asp-for=Password type="password" placeholder="Пароль">
+					<input asp-for=Password type="password" required minlength=1 placeholder="Пароль">
 				</div>
 				<br><br><br>
 				<button type="submit" style="z-index: 10000;">Войти</button>
