@@ -31,47 +31,43 @@
 
             <div class="chat-box">
 
-@*                <div class="chat-messages">
-                    @for(int i = 0; i < Model.Count; i++)
-                    {
-                        <div class="message">
-                            <header>@Model[i].SenderName</header>
-                            <p>@Model[i].Message</p>
-                            <footer>@Model[i].MessageTime.ToString("HH:mm")</footer>
-                        </div>
-                    }
-
-                </div>*@
-
                 @for(int i = 0; i < Model.Count; i++)
                 {
-                <div class="message-bubble-fonts message-bubble">
+                    @if(i==0 || Model[i-1].MessageTime.Day != Model[i].MessageTime.Day)
+                    {
+                        <div class="date-time-message">
+                            <p>@Model[i].MessageTime.ToString("MMMMMMMMMMMMM") @Model[i].MessageTime.Day</p>
+                        </div>
+                    }
+                    <div class="message-bubble-fonts message-bubble">
                         <div class="message">
                             <header>@Model[i].SenderName</header>
                             <p>@Model[i].Message</p>
                             <footer>@Model[i].MessageTime.ToString("HH:mm")</footer>
                         </div>
-                </div>
+                    </div>
                 }
 
             </div>
 
 
 
-                <form class="chat-down" asp-controller="Home" asp-action="CreateMessage">
-                    <input name="message" type="text" maxlength="255" class="user-input" placeholder="Напишите Сообщение..."/>
-                    <button type="submit" class="fa fa-telegram button-send-message"></button>
-                </form>
+            <form class="chat-down" asp-controller="Home" asp-action="CreateMessage">
+                <input name="message" type="text" maxlength="255" class="user-input" placeholder="Напишите Сообщение..."/>
+                <button type="submit" class="fa fa-telegram button-send-message"></button>
+            </form>
 
 
             <h1 class="bot-name">Помощник ВТБ</h1>
             <h1 class="bot-description">бот</h1>
             <img class="bot-icon" src="~/Images/bison.jpg" />
+
         </div>
 
         <div class="chat-advertisment">
 
         </div>
+
     </div>
     <script src="~/js/scroll.js" defer></script>
 </body>

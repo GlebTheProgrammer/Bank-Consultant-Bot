@@ -245,6 +245,8 @@
     user-select: none;
 }
 
+/*Message Section Starts Here*/
+
 .message {
 /*    display: flex;*/
     flex-direction: row;
@@ -308,6 +310,10 @@
     margin-right: -20px;
 }
 
+/*Message Section Ends Here*/
+
+/*Scroll Bar Section Starts Here*/
+
 .chat-box::-webkit-scrollbar {
     width: 20px;
 }
@@ -324,3 +330,28 @@
     border-right: 0;
     background-color: #6281be;
 }
+
+/*Scroll Bar Section Ends Here*/
+
+/*Date Time Message Section Starts Here*/
+
+.date-time-message {
+    padding: 0px 14px;
+    background: #95aabf8a;
+    margin: 10px 30px;
+    border-radius: 10px;
+    position: relative;
+    animation: fadeIn 1s ease-in;
+    align-self: center;
+    min-width: 100px;
+    max-height: 30px;
+    color: #fff;
+}
+
+.date-time-message > p {
+    min-width: 60px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+/*Date Time Message Section Ends Here*/
