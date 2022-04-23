@@ -3,6 +3,12 @@
     background-color: aqua;
     display: flex;
     flex-direction: row;
+
+    /*Disabled copy*/
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .chat-nav {
