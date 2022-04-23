@@ -150,6 +150,20 @@ namespace ChatApplication.Domain
             }
         }
 
+        public bool AddBotMessage(BotMessage message)
+        {
+            try
+            {
+                context.BotMessages.Add(message);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         //Adding Data Into Db Section Ends Here
     }
 }

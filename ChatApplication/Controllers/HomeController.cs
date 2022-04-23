@@ -43,6 +43,15 @@ namespace ChatApplication.Controllers
                 UserId = OnlineUser.Id
             });
 
+            string botMessage = "Hello from Betelgeuse Bot!";
+
+            repository.AddBotMessage(new BotMessage
+            {
+                UserId = OnlineUser.Id,
+                DatePublished= DateTime.Now,
+                Text = botMessage,
+            });    
+
             return RedirectToAction("Index");
         }
     }

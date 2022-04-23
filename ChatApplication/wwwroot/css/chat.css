@@ -355,3 +355,57 @@
 }
 
 /*Date Time Message Section Ends Here*/
+
+/*Bot Message Section Starts Here*/
+
+.bot-message-bubble {
+    padding: 10px 14px;
+    margin: 10px 30px;
+    border-radius: 9px;
+    position: relative;
+    animation: fadeIn 1s ease-in;
+    align-self: start;
+}
+
+.bot-message-bubble-fonts {
+    background: #999999;
+    color: #fff;
+}
+
+.bot-message {
+    flex-direction: row;
+}
+
+.bot-message > header {
+    font-weight: bold;
+    min-width: 100px;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.bot-message > p {
+    margin: 0;
+}
+
+.bot-message > footer {
+    min-width: 60px;
+    text-align: center;
+}
+
+.bot-message-bubble:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-bottom: 0;
+    margin-top: -10px;
+    border-left-color: #999999;
+    border-right: 0;
+    left: 0;
+    margin-left: -20px;
+    transform: scale(-1, 1);
+}
+
+/*Bot Message Section Ends Here*/

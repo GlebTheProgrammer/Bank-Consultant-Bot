@@ -5,6 +5,13 @@ namespace ChatApplication.Mocks
 {
     public class MockChatRepository : IChatRepository
     {
+        public bool AddBotMessage(BotMessage message)
+        {
+            message.Id = MockDbContext.botMessages.Count + 1;
+            MockDbContext.botMessages.Add(message);
+            return true;
+        }
+
         public bool AddNewUser(User user)
         {
             user.Id = MockDbContext.users.Count + 1;
