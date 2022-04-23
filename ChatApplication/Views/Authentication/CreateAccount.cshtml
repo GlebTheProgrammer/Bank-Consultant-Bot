@@ -31,9 +31,9 @@
 			<p>Уже есть аккаунт? <a asp-area="" asp-controller="Authentication" asp-action="Index">Войти в чат</a>.</p>
 			<form asp-controller="Authentication" asp-action="AddUserIntoDatabase" method="post">
 				<div class="inputs">
-				<input asp-for=FullName type="text" required minlength=5 placeholder="ФИО">
+				<input asp-for=FullName type="text" required pattern="([А-ЯЁ][а-яё]+[\-\s]?){3,}" minlength=5 placeholder="ФИО">
 				<br>
-				<input asp-for=Nickname type="text" required minlength=3 placeholder="Имя пользователя">
+				<input asp-for=Nickname type="text" required minlength=3 maxlength=20 placeholder="Имя пользователя">
 				<br />
 				<input asp-for=Email type="email" required pattern="[a-z0-9._%+-]+@@[a-z0-9.-]+\.[a-z]{2, 4}$" placeholder="Адрес электронной почты">
 				<br />
