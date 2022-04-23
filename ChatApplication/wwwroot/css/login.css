@@ -39,9 +39,12 @@
     background-size: cover;
     background-repeat: no-repeat;
     /*background-image: url("https://i.pinimg.com/736x/5d/73/ea/5d73eaabb25e3805de1f8cdea7df4a42--tumblr-backgrounds-iphone-phone-wallpapers-iphone-wallaper-tumblr.jpg");*/
-    background-image: url("https://i.pinimg.com/originals/c2/92/3a/c2923a2798a8b6f3d5cff2be4c7d6fe1.jpg");
+    background-image: url("../Images/bison-background.png");
     overflow: hidden;
+}
 
+.box-form .wolf {
+    background-image: url("../Images/wolf-background.png");
 }
 
 .box-form .left .overlay {

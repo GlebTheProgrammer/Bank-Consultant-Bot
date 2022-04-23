@@ -29,11 +29,11 @@
 			<p>Ещё нет аккаунта? <a asp-area="" asp-controller="Authentication" asp-action="CreateAccount">Создай его прямо сейчас</a>. Это займёт меньше минуты.</p>
 			<form asp-controller="Authentication" asp-action="LoginIntoTheChat" method="post">
 				<div class="inputs">
-					<input asp-for=Nickname type="text" placeholder="Nickname">
+					<input asp-for=Nickname type="text" placeholder="Имя пользователя">
 					<br>
-					<input asp-for=Email type="email" placeholder="Email">
+					<input asp-for=Email type="email" placeholder="Адрес электронной почты">
 					<br>
-					<input asp-for=Password type="password" placeholder="Password">
+					<input asp-for=Password type="password" placeholder="Пароль">
 				</div>
 				<br><br><br>
 				<button type="submit" style="z-index: 10000;">Войти</button>

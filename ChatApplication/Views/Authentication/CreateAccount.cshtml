@@ -9,7 +9,7 @@
 	<body>
 	<!-- partial:index.partial.html -->
 	<div class="box-form">
-		<div class="left">
+		<div class="left wolf">
 			<div class="overlay">
 			<h1 style="text-align: center; font-size: 50px;">Присоединяйся к ВТБ</h1>
 			<h1 style="text-align: center; font-size: 50px;">Прямо Сейчас.</h1>
@@ -31,13 +31,13 @@
 			<p>Уже есть аккаунт? <a asp-area="" asp-controller="Authentication" asp-action="Index">Войти в чат</a>.</p>
 			<form asp-controller="Authentication" asp-action="AddUserIntoDatabase" method="post">
 				<div class="inputs">
-				<input asp-for=FullName type="text" required minlength=5 placeholder="Full Name">
+				<input asp-for=FullName type="text" required minlength=5 placeholder="ФИО">
 				<br>
-				<input asp-for=Nickname type="text" required minlength=3 placeholder="Nickname">
+				<input asp-for=Nickname type="text" required minlength=3 placeholder="Имя пользователя">
 				<br />
-				<input asp-for=Email type="email" required pattern="[a-z0-9._%+-]+@@[a-z0-9.-]+\.[a-z]{2, 4}$" placeholder="Email">
+				<input asp-for=Email type="email" required pattern="[a-z0-9._%+-]+@@[a-z0-9.-]+\.[a-z]{2, 4}$" placeholder="Адрес электронной почты">
 				<br />
-				<input asp-for=Password type="password" required minlength=7 placeholder="Password">
+				<input asp-for=Password type="password" required minlength=7 placeholder="Пароль">
 			</div>
 
 			
