@@ -12,14 +12,16 @@
             <img class="img-rectangle-1" src="~/Images/Rectangle 18.png" />
             <h1 class="text up">Чем Я Могу</h1>
             <h1 class="text down">Помочь?</h1>
-            <button class="button-nav first">Узнать Баланс</button>
-            <button class="button-nav second">Добавить Новый Счёт</button>
-            <button class="button-nav third">Позвать Консультанта</button>
-            <button class="button-nav forth">Курс Доллара к Белорусскому Рублю</button>
-            <button class="button-nav fifth">Ближайшее Отделение Банка</button>
-            <button class="button-nav sixth">Время Работы Банка</button>
-            <button class="button-nav seventh">Реквизиты Банка</button>
-            <button class="button-nav eighth">Адреса Банкоматов</button>
+            <form style="position: static;" asp-controller="Home" asp-action="CreateMessage">
+            <button type="submit" name="message" value="Узнать Баланс" class="button-nav first">Узнать Баланс</button>
+            <button type="submit" name="message" value="Добавить Новый Счёт" class="button-nav second">Добавить Новый Счёт</button>
+            <button type="submit" name="message" value="Позвать Консультанта" class="button-nav third">Позвать Консультанта</button>
+            <button type="submit" name="message" value="Курс Доллара к Белорусскому Рублю" class="button-nav forth">Курс Доллара к Белорусскому Рублю</button>
+            <button type="submit" name="message" value="Ближайшее Отделение Банка" class="button-nav fifth">Ближайшее Отделение Банка</button>
+            <button type="submit" name="message" value="Время Работы Банка" class="button-nav sixth">Время Работы Банка</button>
+            <button type="submit" name="message" value="Реквизиты Банка" class="button-nav seventh">Реквизиты Банка</button>
+            <button type="submit" name="message" value="Адреса Банкоматов" class="button-nav eighth">Адреса Банкоматов</button>
+            </form>
         </div>
 
         <div class="chat-body">

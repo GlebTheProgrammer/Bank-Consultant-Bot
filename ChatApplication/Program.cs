@@ -17,10 +17,10 @@ builder.Services.AddDbContext<ChatDbContext>(opt => opt.UseSqlServer
 //Dependency Injection
 
 //Sql Service
-builder.Services.AddScoped<IChatRepository, SqlChatRepository>();
+//builder.Services.AddScoped<IChatRepository, SqlChatRepository>();
 
 //Mock Service
-//builder.Services.AddScoped<IChatRepository, MockChatRepository>();
+builder.Services.AddScoped<IChatRepository, MockChatRepository>();
 
 builder.Services.AddScoped<IChatMapper, ChatMapper>();
 

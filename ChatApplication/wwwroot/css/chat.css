@@ -253,9 +253,9 @@
     margin-top: 0.2rem;
 }
 
-.message:first-child {
+/*.message:first-child {
     margin-top: auto;
-}
+}*/
 
 .message > * {
     padding: 0.2rem;
@@ -347,6 +347,10 @@
     max-height: 30px;
     color: #fff;
 }
+
+/*.date-time-message:first-child {
+    margin-top: auto;
+}*/
 
 .date-time-message > p {
     min-width: 60px;
