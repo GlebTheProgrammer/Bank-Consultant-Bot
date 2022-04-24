@@ -25,7 +25,7 @@
 	
 	
 		<div class="right">
-			<h5>Войти</h5>
+			<h5 style="font-size: 65px;">Администратор</h5>
 			@if(AuthenticationSettings.LoginAttempts != 0)
 			{
 				<h3 style="color:red;">Неудачная попытка входа. Попробуйте ещё раз.</h3>
@@ -35,7 +35,7 @@
 				<h3 style="color:green;">Аккаунт успешно зарегистрирован.</h3>
 			}
 			<p>Ещё нет аккаунта? <a asp-area="" asp-controller="Authentication" asp-action="CreateAccount">Создай его прямо сейчас</a>. Это займёт меньше минуты.</p>
-			<p>Администратор? Войти в можно <a asp-area="" asp-controller="AdminAuthentication" asp-action="Index">здесь</a>.</p>
+			<p>Клиент банка? Войти в чат можно <a asp-area="" asp-controller="Authentication" asp-action="Index">здесь</a>.</p>
 			<form asp-controller="Authentication" asp-action="LoginIntoTheChat" method="post">
 				<div class="inputs">
 					<input asp-for=Nickname type="text" required minlength=1 placeholder="Имя пользователя">
