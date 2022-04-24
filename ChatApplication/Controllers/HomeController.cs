@@ -1,4 +1,5 @@
-﻿using ChatApplication.Interfaces;
+﻿using ChatApplication.BotDomain;
+using ChatApplication.Interfaces;
 using ChatApplication.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,10 +9,14 @@ namespace ChatApplication.Controllers
     {
         private readonly IChatRepository repository;
         private readonly IChatMapper chatMapper;
-        public HomeController(IChatRepository repository, IChatMapper chatMapper)
+        private readonly IHttpClientFactory httpClientFactory;
+        private readonly IBotCommunication botCommunication;
+        public HomeController(IChatRepository repository, IChatMapper chatMapper, IHttpClientFactory httpClientFactory, IBotCommunication botCommunication)
         {
             this.repository = repository;
             this.chatMapper = chatMapper;
+            this.httpClientFactory = httpClientFactory;
+            this.botCommunication = botCommunication;
         }
 
         public IActionResult Index()
@@ -28,7 +33,7 @@ namespace ChatApplication.Controllers
             return View(model);
         }
 
-        public IActionResult CreateMessage(string message)
+        public async Task<IActionResult> CreateMessage(string message)
         {
             if(string.IsNullOrEmpty(message))
                 return RedirectToAction("Index");
@@ -42,8 +47,9 @@ namespace ChatApplication.Controllers
                 DatePublished = DateTime.Now,
                 UserId = OnlineUser.Id
             });
-
-            string botMessage = "Hello from Betelgeuse Bot!";
+            var httpClient = httpClientFactory.CreateClient();
+            botCommunication.HttpClient = httpClient;
+            var botMessage = await botCommunication.AnswerBotAsync(message);
 
             repository.AddBotMessage(new BotMessage
             {
