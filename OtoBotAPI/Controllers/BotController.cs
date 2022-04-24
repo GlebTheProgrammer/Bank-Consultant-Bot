@@ -6,7 +6,7 @@ namespace OtoBotAPI.Controllers;
 /// Point of bot answer for you request.
 /// </summary>
 [ApiController]
-[Microsoft.AspNetCore.Components.Route("api/[controller]")]
+[Route("api/[controller]")]
 public class BotController : ControllerBase
 {
 
@@ -21,7 +21,7 @@ public class BotController : ControllerBase
     /// sends answer.
     /// </summary>
     /// <returns>String answer.</returns>
-    [HttpGet(Name = "GetWeatherForecast")]
+    [HttpGet(Name = "GetBot")]
     public string Get()
     {
         return "Hello from bot.";

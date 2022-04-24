@@ -34,7 +34,7 @@ if (string.IsNullOrEmpty(botApiUrl))
 {
     throw new ArgumentException("Bot api url was not found.");
 }
-builder.Services.AddSingleton<IBotCommunication, BotCommunication>(conf => new BotCommunication("https://localhost:7266/api/WeatherForecast"));
+builder.Services.AddSingleton<IBotCommunication, BotCommunication>(conf => new BotCommunication(botApiUrl));
 
 var app = builder.Build();
 
