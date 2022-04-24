@@ -1,10 +1,13 @@
-﻿namespace ChatApplication.BotDomain;
+﻿using System.Net.Sockets;
+
+namespace ChatApplication.BotDomain;
 
 public class BotCommunication : IBotCommunication
 {
-    private readonly string url; 
-    
-    
+    private const string BotFailAnswer = "Бот сейчас недоступен, попробуйте в другой раз";
+    private readonly string url;
+
+
     public BotCommunication(string url )
     {
         this.url = url;
@@ -22,11 +25,28 @@ public class BotCommunication : IBotCommunication
         {
             throw new ArgumentException("HttpClient was not created.");
         }
-        var responseMessage = await HttpClient.SendAsync(request);
 
-        var message = await responseMessage.Content.ReadAsStringAsync();
+        try
+        {
+            var response = await HttpClient.SendAsync(request);
+            if (!response.IsSuccessStatusCode)
+            {
+                return BotFailAnswer;
+            }
 
-        return message;
+            var message = await response.Content.ReadAsStringAsync();
+
+            return message;
+        }
+        catch (HttpRequestException e)
+        {
+            return BotFailAnswer;
+        }
+        catch (SocketException e)
+        {
+            return BotFailAnswer;
+        }
+        
     }
     
 }
