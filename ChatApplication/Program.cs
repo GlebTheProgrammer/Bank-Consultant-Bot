@@ -1,6 +1,5 @@
 using ChatApplication.BotDomain;
 using ChatApplication.DbConfiguration;
-using ChatApplication.Domain;
 using ChatApplication.Interfaces;
 using ChatApplication.Mapper;
 using ChatApplication.Mocks;
@@ -10,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 // Add services to the container.
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddMvc();
 
@@ -27,22 +27,22 @@ builder.Services.AddScoped<IChatRepository, MockChatRepository>();
 builder.Services.AddScoped<IChatMapper, ChatMapper>();
 
 
-
 //Http client
 builder.Services.AddHttpClient();
+var botApiUrl = builder.Configuration.GetSection("BotApiConnectionUrl").Value;
+if (string.IsNullOrEmpty(botApiUrl))
+{
+    throw new ArgumentException("Bot api url was not found.");
+}
 builder.Services.AddSingleton<IBotCommunication, BotCommunication>(conf => new BotCommunication("https://localhost:7266/api/WeatherForecast"));
 
 var app = builder.Build();
-//app.UseMvcWithDefaultRoute();
 
-
-//app.MapGet("/", () => "Hello World!");
 app.UseRouting();
 app.UseStaticFiles();
 
 app.MapControllerRoute(
     name: "default/hello",
-    //pattern: "{controller=Home}/{action=Index}/{id?}");
     pattern: "{controller=Authentication}/{action=Index}/{id?}");
 
 app.Run();
