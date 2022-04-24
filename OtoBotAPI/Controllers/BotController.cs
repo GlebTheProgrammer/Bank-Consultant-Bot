@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace OtoBotAPI.Controllers;
 
@@ -21,6 +22,7 @@ public class BotController : ControllerBase
     /// sends answer.
     /// </summary>
     /// <returns>String answer.</returns>
+    [Authorize]
     [HttpGet(Name = "GetBot")]
     public string Get()
     {

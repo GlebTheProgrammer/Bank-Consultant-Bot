@@ -1,3 +1,4 @@
+using ChatApplication.ApiAuthenticationDomain;
 using ChatApplication.BotDomain;
 using ChatApplication.DbConfiguration;
 using ChatApplication.Interfaces;
@@ -35,6 +36,16 @@ if (string.IsNullOrEmpty(botApiUrl))
     throw new ArgumentException("Bot api url was not found.");
 }
 builder.Services.AddSingleton<IBotCommunication, BotCommunication>(conf => new BotCommunication(botApiUrl));
+
+//Auth 
+
+builder.Services.AddHttpClient();
+var authApiUrl = builder.Configuration.GetSection("AuthorityUrl").Value;
+if (string.IsNullOrEmpty(authApiUrl))
+{
+    throw new ArgumentException("Bot api url was not found.");
+}
+builder.Services.AddSingleton<IAuthenticateApi, AuthenticateApi>(conf => new AuthenticateApi(authApiUrl));
 
 var app = builder.Build();
 
