@@ -1,3 +1,4 @@
+using ChatApplication.BotDomain;
 using ChatApplication.DbConfiguration;
 using ChatApplication.Domain;
 using ChatApplication.Interfaces;
@@ -6,6 +7,7 @@ using ChatApplication.Mocks;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -23,6 +25,12 @@ builder.Services.AddDbContext<ChatDbContext>(opt => opt.UseSqlServer
 builder.Services.AddScoped<IChatRepository, MockChatRepository>();
 
 builder.Services.AddScoped<IChatMapper, ChatMapper>();
+
+
+
+//Http client
+builder.Services.AddHttpClient();
+builder.Services.AddSingleton<IBotCommunication, BotCommunication>(conf => new BotCommunication("https://localhost:7266/api/WeatherForecast"));
 
 var app = builder.Build();
 //app.UseMvcWithDefaultRoute();
