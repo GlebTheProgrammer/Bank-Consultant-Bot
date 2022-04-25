@@ -15,11 +15,15 @@ namespace ChatApplication.Controllers
         }
         public IActionResult Index()
         {
+            AuthenticationSettings.newAdminCreated = false;
+
             LoginAdmin loginAdmin = new LoginAdmin();
             return View(loginAdmin);
         }
         public IActionResult StartWorkingSession(LoginAdmin loginAdmin)
         {
+            AuthenticationSettings.LoginAttempts++;
+            AuthenticationSettings.newAccoutCreated = false;
 
             loginAdmin.Email = loginAdmin.Email.ToLower();
             var admin = repository.GetAdminByInputData(loginAdmin);
@@ -39,14 +43,19 @@ namespace ChatApplication.Controllers
 
         public IActionResult CreateAdmin()
         {
+            AuthenticationSettings.newAccoutCreated = false;
+            AuthenticationSettings.LoginAttempts = 0;
+
             var admin = new Admin();
             return View(admin);
         }
 
         public IActionResult AddAdminIntoDatabase(Admin admin, string accessCode)
         {
+            AuthenticationSettings.newAdminCreated = true;
             if (!accessChecker.checkForAccessCode(accessCode))
             {
+                AuthenticationSettings.newAdminCreated = false;
                 return RedirectToAction("CreateAdmin");
             }
             else
@@ -55,6 +64,8 @@ namespace ChatApplication.Controllers
                 {
                     admin.Email = admin.Email.ToLower();
                     repository.AddNewAdmin(admin);
+
+                    AuthenticationSettings.newAccoutCreated = true;
                 }
                 return View("Index");
             }

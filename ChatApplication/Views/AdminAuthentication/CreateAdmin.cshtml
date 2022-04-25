@@ -29,6 +29,10 @@
 			<br /><br />
 			<h1 style="font-size: 55px; line-height: 0.5;">Добавить</h1>
 			<h1 style="font-size: 55px; line-height: 0.7;">Администратора</h1>
+			@if(AuthenticationSettings.newAdminCreated == false)
+			{
+				<h3 style="color:red;">Ошибка. Попробуйте ещё раз.</h3>
+			}
 			<p>Уже есть аккаунт администратора? <a asp-area="" asp-controller="AdminAuthentication" asp-action="Index">Войти в чат</a>.</p>
 			<form asp-controller="AdminAuthentication" asp-action="AddAdminIntoDatabase" method="post">
 			<div class="inputs">
