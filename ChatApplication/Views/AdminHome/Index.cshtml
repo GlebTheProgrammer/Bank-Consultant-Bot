@@ -1,0 +1,86 @@
+﻿@using ChatApplication.Models
+@model List<ChatMessage>
+
+<head>
+    <link rel="stylesheet" href=~/css/chat.css>
+</head>
+
+<body>
+    <div class="chat">
+        <div class="chat-nav">
+            <img class="img-rectangle-2" src="~/Images/Rectangle 19.png" />
+            <img class="img-rectangle-1" src="~/Images/Rectangle 18.png" />
+            <h1 class="text up">Основной</h1>
+            <h1 class="text down">Функционал</h1>
+            <form style="position: static;" asp-controller="Home" asp-action="CreateMessage">
+            <button type="submit" name="message" value="Удалить пользователя" class="button-nav first">Узнать Баланс</button>
+            <button type="submit" name="message" value="Добавить Новый Счёт" class="button-nav second">Добавить Новый Счёт</button>
+            <button type="submit" name="message" value="Позвать Консультанта" class="button-nav third">Позвать Консультанта</button>
+            <button type="submit" name="message" value="Курс Доллара к Белорусскому Рублю" class="button-nav forth">Курс Доллара к Белорусскому Рублю</button>
+            <button type="submit" name="message" value="Ближайшее Отделение Банка" class="button-nav fifth">Ближайшее Отделение Банка</button>
+            <button type="submit" name="message" value="Время Работы Банка" class="button-nav sixth">Время Работы Банка</button>
+            <button type="submit" name="message" value="Реквизиты Банка" class="button-nav seventh">Реквизиты Банка</button>
+            <button type="submit" name="message" value="Адреса Банкоматов" class="button-nav eighth">Адреса Банкоматов</button>
+            </form>
+        </div>
+
+        <div class="chat-body">
+            <div class="chat-top"></div>
+            <div class="chat-left"></div>
+            <div class="chat-right"></div>
+
+            <img style="width: 80%; height: 90%; margin-left: -10%; top: 5%; pointer-events: none;" class="img-rectangle-1 disable-select" src="~/Images/Component 6.png" />
+
+            <div class="chat-box">
+
+                @for(int i = 0; i < Model.Count; i++)
+                {
+                    @if(i==0 || Model[i-1].MessageTime.Day != Model[i].MessageTime.Day)
+                    {
+                        <div class="date-time-message">
+                            <p>@Model[i].MessageTime.ToString("MMMMMMMMMMMMM") @Model[i].MessageTime.Day</p>
+                        </div>
+                    }
+
+                    @if(Model[i].SenderName == OnlineUser.Nickname)
+                    {
+                        <div class="message-bubble-fonts message-bubble">
+                            <div class="message">
+                                <header>@Model[i].SenderName</header>
+                                <p>@Model[i].Message</p>
+                                <footer>@Model[i].MessageTime.ToString("HH:mm")</footer>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="bot-message-bubble-fonts bot-message-bubble">
+                            <div class="bot-message">
+                                <header>@Model[i].SenderName</header>
+                                <p>@Model[i].Message</p>
+                                <footer>@Model[i].MessageTime.ToString("HH:mm")</footer>
+                            </div>
+                        </div>
+                    }
+                }
+
+            </div>
+
+
+
+            <div class="chat-down" style="height: auto; top: 96.9%;">
+            </div>
+
+
+            <h1 class="bot-name" style="margin-left: 0; width: 54.3%; text-align: center;">Консоль Системного Администратора</h1>
+            <h1 class="bot-description" style="margin-left: 0; width: 54.3%; text-align: center;">System</h1>
+
+        </div>
+
+        <div class="chat-advertisment">
+
+        </div>
+
+    </div>
+    <script src="~/js/scroll.js" defer></script>
+</body>

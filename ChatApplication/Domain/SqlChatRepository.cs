@@ -80,6 +80,12 @@ namespace ChatApplication.Domain
         {
             return context.Admins.ToList();
         }
+        public Admin GetAdminByInputData(LoginAdmin loginAdmin)
+        {
+            return context.Admins.FirstOrDefault(x => x.Password == CreateMd5FromString(loginAdmin.Password) &&
+                                                     x.Nickname == loginAdmin.Nickname &&
+                                                     x.Email == loginAdmin.Email);
+        }
 
         public IEnumerable<BotMessage> GetAllBotMessages()
         {
@@ -127,6 +133,21 @@ namespace ChatApplication.Domain
             {
                 user.Password = CreateMd5FromString(user.Password);
                 context.Users.Add(user);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool AddNewAdmin(Admin admin)
+        {
+            try
+            {
+                admin.Password = CreateMd5FromString(admin.Password);
+                context.Admins.Add(admin);
                 context.SaveChanges();
                 return true;
             }

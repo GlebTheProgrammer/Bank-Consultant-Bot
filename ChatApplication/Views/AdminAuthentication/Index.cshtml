@@ -1,5 +1,5 @@
 ﻿@using ChatApplication.Models
-@model LoginUser
+@model LoginAdmin
 
 <html>
 	<head>
@@ -8,7 +8,7 @@
 	<body>
 	<!-- partial:index.partial.html -->
 	<div class="box-form">
-		<div class="left">
+		<div class="left delphin">
 			<div class="overlay">
 			<h1 style="text-align: center; font-size: 50px;">Присоединяйся к ВТБ</h1>
 			<h1 style="text-align: center; font-size: 50px;">Прямо Сейчас.</h1>
@@ -34,11 +34,11 @@
 			{
 				<h3 style="color:green;">Аккаунт успешно зарегистрирован.</h3>
 			}
-			<p>Ещё нет аккаунта? <a asp-area="" asp-controller="Authentication" asp-action="CreateAccount">Создай его прямо сейчас</a>. Это займёт меньше минуты.</p>
+			<p>Ещё нет аккаунта? <a asp-area="" asp-controller="AdminAuthentication" asp-action="CreateAdmin">Создай его прямо сейчас</a>. Это займёт меньше минуты.</p>
 			<p>Клиент банка? Войти в чат можно <a asp-area="" asp-controller="Authentication" asp-action="Index">здесь</a>.</p>
-			<form asp-controller="Authentication" asp-action="LoginIntoTheChat" method="post">
+			<form asp-controller="AdminAuthentication" asp-action="StartWorkingSession" method="post">
 				<div class="inputs">
-					<input asp-for=Nickname type="text" required minlength=1 placeholder="Имя пользователя">
+					<input asp-for=Nickname type="text" required minlength=1 placeholder="Имя администратора">
 					<br>
 					<input asp-for=Email type="email" required minlength=1 placeholder="Адрес электронной почты">
 					<br>

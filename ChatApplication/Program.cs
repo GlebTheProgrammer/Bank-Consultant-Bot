@@ -1,9 +1,11 @@
 using ChatApplication.ApiAuthenticationDomain;
 using ChatApplication.BotDomain;
 using ChatApplication.DbConfiguration;
+using ChatApplication.Domain;
 using ChatApplication.Interfaces;
 using ChatApplication.Mapper;
 using ChatApplication.Mocks;
+using ChatApplication.Security;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,12 +22,14 @@ builder.Services.AddDbContext<ChatDbContext>(opt => opt.UseSqlServer
 //Dependency Injection
 
 //Sql Service
-//builder.Services.AddScoped<IChatRepository, SqlChatRepository>();
+builder.Services.AddScoped<IChatRepository, SqlChatRepository>();
 
 //Mock Service
-builder.Services.AddScoped<IChatRepository, MockChatRepository>();
+//builder.Services.AddScoped<IChatRepository, MockChatRepository>();
 
+//Additional Services
 builder.Services.AddScoped<IChatMapper, ChatMapper>();
+builder.Services.AddScoped<IAdminCreatorAccessChecker, AdminCreatorAccessChecker>();
 
 
 //Http client

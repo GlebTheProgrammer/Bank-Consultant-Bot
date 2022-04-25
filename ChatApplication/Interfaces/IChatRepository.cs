@@ -19,12 +19,14 @@ namespace ChatApplication.Interfaces
         public User GetUserByInputData(LoginUser loginUser);
         public Admin GetAdminById(int id);
         public Admin GetAdminByEmail(string email);
+        public Admin GetAdminByInputData(LoginAdmin loginAdmin);
 
         //Getting Data From Db Section Ends Here
 
         //Adding Data Into Db Section Starts Here
 
         public bool AddNewUser(User user);
+        public bool AddNewAdmin(Admin admin);
         public bool AddUserMesage(UserMessage message);
         public bool AddBotMessage(BotMessage message);
 

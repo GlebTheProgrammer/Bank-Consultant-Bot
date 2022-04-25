@@ -1,6 +1,6 @@
 ﻿@using ChatApplication.Models
 
-@model User
+@model Admin
 
 <html>
 	<head>
@@ -9,7 +9,7 @@
 	<body>
 	<!-- partial:index.partial.html -->
 	<div class="box-form">
-		<div class="left wolf">
+		<div class="left bear">
 			<div class="overlay">
 			<h1 style="text-align: center; font-size: 50px;">Присоединяйся к ВТБ</h1>
 			<h1 style="text-align: center; font-size: 50px;">Прямо Сейчас.</h1>
@@ -27,17 +27,20 @@
 	
 			<div class="right">
 			<br /><br />
-			<h1 style="font-size: 55px; line-height: 1;">Создать Аккаунт</h1>
-			<p>Уже есть аккаунт? <a asp-area="" asp-controller="Authentication" asp-action="Index">Войти в чат</a>.</p>
-			<form asp-controller="Authentication" asp-action="AddUserIntoDatabase" method="post">
-				<div class="inputs">
+			<h1 style="font-size: 55px; line-height: 0.5;">Добавить</h1>
+			<h1 style="font-size: 55px; line-height: 0.7;">Администратора</h1>
+			<p>Уже есть аккаунт администратора? <a asp-area="" asp-controller="AdminAuthentication" asp-action="Index">Войти в чат</a>.</p>
+			<form asp-controller="AdminAuthentication" asp-action="AddAdminIntoDatabase" method="post">
+			<div class="inputs">
 				<input asp-for=FullName type="text" required pattern="([А-ЯЁ][а-яё]+[\-\s]?){3,}" minlength=5 placeholder="ФИО">
 				<br>
-				<input asp-for=Nickname type="text" required minlength=3 maxlength=20 placeholder="Имя пользователя">
+				<input asp-for=Nickname type="text" required minlength=3 maxlength=20 placeholder="Имя администратора">
 				<br />
 				<input asp-for=Email type="email" required pattern="[a-z0-9._%+-]+@@[a-z0-9.-]+\.[a-z]{2, 4}$" placeholder="Адрес электронной почты">
 				<br />
 				<input asp-for=Password type="password" required minlength=7 placeholder="Пароль">
+				<br />
+				<input name="accessCode" type="text" required minlength=3 placeholder="Код подтверждения">
 			</div>
 
 			

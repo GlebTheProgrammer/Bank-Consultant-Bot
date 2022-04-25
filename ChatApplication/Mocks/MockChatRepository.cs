@@ -12,6 +12,13 @@ namespace ChatApplication.Mocks
             return true;
         }
 
+        public bool AddNewAdmin(Admin admin)
+        {
+            admin.Id = MockDbContext.admins.Count + 1;
+            MockDbContext.admins.Add(admin);
+            return true;
+        }
+
         public bool AddNewUser(User user)
         {
             user.Id = MockDbContext.users.Count + 1;
@@ -34,6 +41,13 @@ namespace ChatApplication.Mocks
         public Admin GetAdminById(int id)
         {
             return MockDbContext.admins.FirstOrDefault(admin => id == admin.Id);
+        }
+
+        public Admin GetAdminByInputData(LoginAdmin loginAdmin)
+        {
+            return MockDbContext.admins.FirstOrDefault(admin => admin.Password == loginAdmin.Password &&
+                                                     admin.Nickname == loginAdmin.Nickname &&
+                                                     admin.Email == loginAdmin.Email);
         }
 
         public IEnumerable<AdminMessage> GetAllAdminMessagesById(int adminId)
