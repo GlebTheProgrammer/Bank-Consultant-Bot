@@ -15,7 +15,6 @@ namespace ChatApplication.Controllers
         }
         public IActionResult Index()
         {
-            AuthenticationSettings.newAdminCreated = false;
 
             LoginAdmin loginAdmin = new LoginAdmin();
             return View(loginAdmin);
@@ -37,7 +36,7 @@ namespace ChatApplication.Controllers
                 OnlineAdmin.Nickname = admin.Nickname;
 
                 //Redirect for some new functional for admin
-                return RedirectToAction("Index", "Home", new { area = "" });
+                return RedirectToAction("Index", "AdminHome", new { area = "" });
             }
         }
 
@@ -52,11 +51,11 @@ namespace ChatApplication.Controllers
 
         public IActionResult AddAdminIntoDatabase(Admin admin, string accessCode)
         {
-            AuthenticationSettings.newAdminCreated = true;
             if (!accessChecker.checkForAccessCode(accessCode))
             {
-                AuthenticationSettings.newAdminCreated = false;
-                return RedirectToAction("CreateAdmin");
+                //return RedirectToAction("CreateAdmin");
+                ModelState.AddModelError("accessCode", "Access code does not match.");
+                return View("CreateAdmin");
             }
             else
             {
