@@ -1,4 +1,6 @@
 ﻿using System.Net.Sockets;
+using System.Text;
+using Newtonsoft.Json;
 
 namespace ChatApplication.BotDomain;
 
@@ -18,9 +20,16 @@ public class BotCommunication : IBotCommunication
 
     public async Task<string> AnswerBotAsync(string userMessage)
     {
+        var messageModel = new BotTransferMessageModel()
+        {
+            Message = userMessage
+        };
+        var jsonData = JsonConvert.SerializeObject(messageModel);
+        
         var request = new HttpRequestMessage();
-        request.Content = new StringContent(userMessage);
+        request.Content = new StringContent(jsonData, Encoding.UTF8, "application/json");
         request.RequestUri = new Uri(url);
+        
         if (HttpClient is null)
         {
             throw new ArgumentException("HttpClient was not created.");
