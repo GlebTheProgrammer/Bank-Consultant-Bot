@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.Text;
+using ChatApplication.BotDomain;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using OtoBot;
 
 namespace OtoBotAPI.Controllers;
 
@@ -24,9 +27,10 @@ public class BotController : ControllerBase
     /// <returns>String answer.</returns>
     [Authorize]
     [HttpGet(Name = "GetBot")]
-    public string Get()
+    public async Task<IActionResult> Get([FromBody] BotTransferMessageModel messageModel)
     {
-        return "Hello from bot.";
+        var botAnswer = await Message.GetBotAnswer(messageModel.Message);
+        return Ok(botAnswer);
     }
         
     
