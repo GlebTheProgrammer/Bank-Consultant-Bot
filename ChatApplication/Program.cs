@@ -4,6 +4,7 @@ using ChatApplication.DbConfiguration;
 using ChatApplication.Interfaces;
 using ChatApplication.Mapper;
 using ChatApplication.Mocks;
+using ChatApplication.Security;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,7 +26,9 @@ builder.Services.AddDbContext<ChatDbContext>(opt => opt.UseSqlServer
 //Mock Service
 builder.Services.AddScoped<IChatRepository, MockChatRepository>();
 
+//Additional Services
 builder.Services.AddScoped<IChatMapper, ChatMapper>();
+builder.Services.AddScoped<IAdminCreatorAccessChecker, AdminCreatorAccessChecker>();
 
 
 //Http client

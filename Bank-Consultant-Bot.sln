@@ -9,12 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatApplication", "ChatAppl
 		{E666BDCF-5302-42FA-B742-C712ADCB490C} = {E666BDCF-5302-42FA-B742-C712ADCB490C}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtoBotAPI", "OtoBotAPI\OtoBotAPI.csproj", "{E666BDCF-5302-42FA-B742-C712ADCB490C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OtoBotAPI", "OtoBotAPI\OtoBotAPI.csproj", "{E666BDCF-5302-42FA-B742-C712ADCB490C}"
 	ProjectSection(ProjectDependencies) = postProject
 		{75AD665E-600B-4FE1-A3B6-1C5B446FD8C9} = {75AD665E-600B-4FE1-A3B6-1C5B446FD8C9}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatBot.IdentityServer", "ChatBot.IdentityServer\ChatBot.IdentityServer.csproj", "{75AD665E-600B-4FE1-A3B6-1C5B446FD8C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatBot.IdentityServer", "ChatBot.IdentityServer\ChatBot.IdentityServer.csproj", "{75AD665E-600B-4FE1-A3B6-1C5B446FD8C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,19 +24,19 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{4ED5DD2C-F3B6-4839-82C4-8F536A293BDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4ED5DD2C-F3B6-4839-82C4-8F536A293BDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ED5DD2C-F3B6-4839-82C4-8F536A293BDB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{4ED5DD2C-F3B6-4839-82C4-8F536A293BDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4ED5DD2C-F3B6-4839-82C4-8F536A293BDB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4ED5DD2C-F3B6-4839-82C4-8F536A293BDB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{E666BDCF-5302-42FA-B742-C712ADCB490C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E666BDCF-5302-42FA-B742-C712ADCB490C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E666BDCF-5302-42FA-B742-C712ADCB490C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{E666BDCF-5302-42FA-B742-C712ADCB490C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E666BDCF-5302-42FA-B742-C712ADCB490C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E666BDCF-5302-42FA-B742-C712ADCB490C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{75AD665E-600B-4FE1-A3B6-1C5B446FD8C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{75AD665E-600B-4FE1-A3B6-1C5B446FD8C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75AD665E-600B-4FE1-A3B6-1C5B446FD8C9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{75AD665E-600B-4FE1-A3B6-1C5B446FD8C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75AD665E-600B-4FE1-A3B6-1C5B446FD8C9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{75AD665E-600B-4FE1-A3B6-1C5B446FD8C9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
