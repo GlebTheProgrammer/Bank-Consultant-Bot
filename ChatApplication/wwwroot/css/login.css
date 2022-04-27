@@ -38,20 +38,24 @@
     color: #FFFFFF;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("../Images/bison-background.png");
+    /*    background-image: url("../Images/bison-background2.png");*/
+    background-image: url("../Images/bison-background6.jpg");
     overflow: hidden;
 }
 
 .box-form .wolf {
-    background-image: url("../Images/wolf-background.png");
+/*    background-image: url("../Images/wolf-background.png");*/
+    background-image: url("../Images/bison-background6.jpg");
 }
 
 .box-form .delphin {
-    background-image: url("../Images/delphin-background.jpg");
+    /*    background-image: url("../Images/delphin-background.jpg");*/
+    background-image: url("../Images/bison-background6.jpg");
 }
 
 .box-form .bear {
-    background-image: url("../Images/bear.jpg");
+    /*    background-image: url("../Images/bear.jpg");*/
+    background-image: url("../Images/bison-background6.jpg");
 }
 
 .box-form .left .overlay {

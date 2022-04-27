@@ -16,6 +16,7 @@ namespace ChatApplication.Interfaces
         public IEnumerable<BotMessage> GetAllBotMessagesForSpecialUserByUserId(int userId);
         public User GetUserById(int id);
         public User GetUserByEmail(string email);
+        public User GetUserByFullNameAndEmail(string fullName, string email);
         public User GetUserByInputData(LoginUser loginUser);
         public Admin GetAdminById(int id);
         public Admin GetAdminByEmail(string email);
@@ -28,9 +29,16 @@ namespace ChatApplication.Interfaces
         public bool AddNewUser(User user);
         public bool AddNewAdmin(Admin admin);
         public bool AddUserMesage(UserMessage message);
+        public bool AddAdminMessage(AdminMessage message);
         public bool AddBotMessage(BotMessage message);
 
         //Adding Data Into Db Section Ends Here
+
+        //Delete Data From Db Section Starts Here
+
+        public bool DeleteUser(User user);
+
+        //Delete Data From Db Section Ends Here
 
     }
 }

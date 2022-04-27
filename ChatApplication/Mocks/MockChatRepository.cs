@@ -5,6 +5,13 @@ namespace ChatApplication.Mocks
 {
     public class MockChatRepository : IChatRepository
     {
+        public bool AddAdminMessage(AdminMessage message)
+        {
+            message.Id = MockDbContext.adminMessages.Count + 1;
+            MockDbContext.adminMessages.Add(message);
+            return true;
+        }
+
         public bool AddBotMessage(BotMessage message)
         {
             message.Id = MockDbContext.botMessages.Count + 1;
@@ -30,6 +37,12 @@ namespace ChatApplication.Mocks
         {
             message.Id = MockDbContext.userMessages.Count + 1;
             MockDbContext.userMessages.Add(message);
+            return true;
+        }
+
+        public bool DeleteUser(User user)
+        {
+            MockDbContext.users.Remove(user);
             return true;
         }
 
@@ -88,6 +101,11 @@ namespace ChatApplication.Mocks
         public User GetUserByEmail(string email)
         {
             return MockDbContext.users.FirstOrDefault(user => user.Email == email);
+        }
+
+        public User GetUserByFullNameAndEmail(string fullName, string email)
+        {
+            return MockDbContext.users.FirstOrDefault(user => user.FullName == fullName && user.Email == email);
         }
 
         public User GetUserById(int id)

@@ -111,6 +111,10 @@ namespace ChatApplication.Domain
         {
             return context.Users.FirstOrDefault(x => x.Email == email);
         }
+        public User GetUserByFullNameAndEmail(string fullName, string email)
+        {
+            return context.Users.FirstOrDefault(x => x.Email == email && x.FullName == fullName);
+        }
 
         public User GetUserById(int id)
         {
@@ -171,6 +175,20 @@ namespace ChatApplication.Domain
             }
         }
 
+        public bool AddAdminMessage(AdminMessage message)
+        {
+            try
+            {
+                context.AdminMessages.Add(message);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public bool AddBotMessage(BotMessage message)
         {
             try
@@ -186,5 +204,22 @@ namespace ChatApplication.Domain
         }
 
         //Adding Data Into Db Section Ends Here
+
+        //Delete Data From Db Section Starts Here
+        public bool DeleteUser(User user)
+        {
+            try
+            {
+                context.Users.Remove(user);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        //Delete Data From Db Section Ends Here
     }
 }

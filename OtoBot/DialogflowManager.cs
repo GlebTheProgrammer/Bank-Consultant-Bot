@@ -7,7 +7,7 @@ namespace OtoBot;
 public class DialogflowManager
 {
     private const string DefaultProjectId = "test-cuhj";
-    private const string DefaultUserId = "123";
+    private const string DefaultUserId = "124";
     
     private string _userID;
     private string _projectId;
@@ -24,7 +24,7 @@ public class DialogflowManager
 
     private void SetEnvironmentVariable() {
         try {
-            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", @"C:\Users\Lenovo\Downloads\test-cuhj-22e8957b999b.json");
+            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", @"C:\Users\Gleb\OneDrive\Рабочий стол\Main Projects\Bank-Chat-Bot\key\gleb_key.json");
         } catch (ArgumentNullException) {
             throw;
         } catch (ArgumentException) {

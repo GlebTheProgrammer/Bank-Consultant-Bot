@@ -421,3 +421,37 @@
 }
 
 /*Bot Message Section Ends Here*/
+
+.admin-inputs input {
+    width: 20%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #B0B3B9;
+    position: absolute;
+    margin-top: 17.5%;
+    margin-left: 1%;
+}
+
+.admin-inputs button {
+    outline: none;
+    height: 40px;
+    text-align: center;
+    width: 130px;
+    border-radius: 40px;
+    background: #fff;
+    border: 2px solid #1ecd97;
+    color: #1ecd97;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    float: right;
+    position: absolute;
+    margin-left: 7%;
+}
+
+.admin-inputs button:hover {
+    color: white;
+    background: #1ecd97;
+}

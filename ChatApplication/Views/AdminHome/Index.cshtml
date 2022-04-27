@@ -12,15 +12,11 @@
             <img class="img-rectangle-1" src="~/Images/Rectangle 18.png" />
             <h1 class="text up">Основной</h1>
             <h1 class="text down">Функционал</h1>
-            <form style="position: static;" asp-controller="Home" asp-action="CreateMessage">
-            <button type="submit" name="message" value="Удалить пользователя" class="button-nav first">Узнать Баланс</button>
-            <button type="submit" name="message" value="Добавить Новый Счёт" class="button-nav second">Добавить Новый Счёт</button>
-            <button type="submit" name="message" value="Позвать Консультанта" class="button-nav third">Позвать Консультанта</button>
-            <button type="submit" name="message" value="Курс Доллара к Белорусскому Рублю" class="button-nav forth">Курс Доллара к Белорусскому Рублю</button>
-            <button type="submit" name="message" value="Ближайшее Отделение Банка" class="button-nav fifth">Ближайшее Отделение Банка</button>
-            <button type="submit" name="message" value="Время Работы Банка" class="button-nav sixth">Время Работы Банка</button>
-            <button type="submit" name="message" value="Реквизиты Банка" class="button-nav seventh">Реквизиты Банка</button>
-            <button type="submit" name="message" value="Адреса Банкоматов" class="button-nav eighth">Адреса Банкоматов</button>
+            <form style="position: static;" asp-controller="AdminHome" asp-action="ShowInputFields">
+            <button type="submit" name="action" value="1" class="button-nav first">Удалить Пользователя</button>
+            <button type="submit" name="action" value="2" class="button-nav second">Показать Переписку</button>
+            <button type="submit" name="action" value="3" class="button-nav third">Удалить Сообщения Пользователя</button>
+            <button type="submit" name="action" value="4" class="button-nav forth">Найти Все Сообщения</button>
             </form>
         </div>
 
@@ -31,7 +27,7 @@
 
             <img style="width: 80%; height: 90%; margin-left: -10%; top: 5%; pointer-events: none;" class="img-rectangle-1 disable-select" src="~/Images/Component 6.png" />
 
-            <div class="chat-box">
+            <div class="chat-box" style="height: 83%;">
 
                 @for(int i = 0; i < Model.Count; i++)
                 {
@@ -42,7 +38,7 @@
                         </div>
                     }
 
-                    @if(Model[i].SenderName == OnlineUser.Nickname)
+                    @if(Model[i].SenderName == OnlineAdmin.Nickname)
                     {
                         <div class="message-bubble-fonts message-bubble">
                             <div class="message">
@@ -78,7 +74,48 @@
         </div>
 
         <div class="chat-advertisment">
-
+            <div style="margin-left: 1.9%;">
+            <img class="img-rectangle-2" style="top:170px;" src="~/Images/Rectangle 19.png" />
+            <img class="img-rectangle-1" style="top:130px;" src="~/Images/Rectangle 20.png" />
+            <h1 class="text up" style="top:110px;">Заполнить</h1>
+            <h1 class="text down" style="top: 150px;">Поля</h1>
+            </div>
+            <div class="admin-inputs">
+                @if(AdminAction.action == ToDoAction.DeleteUser)
+                {
+                    <form asp-controller="AdminHome" asp-action="DeleteUser">
+                        <input type="text" style="top:0%;" name="fullName" placeholder="ФИО Пользователя"/>
+                        <br />
+                        <input type="email" style="top:7%;" name="email" placeholder="Адрес Электронной Почты"/>
+                        <button type="submit" style="top:53%">Отправить</button>
+                    </form>
+                } 
+                else if(AdminAction.action == ToDoAction.ShowDialog)
+                {
+                    <form asp-controller="AdminHome" asp-action="ShowDialog">
+                        <input type="text" style="top:0%;" name="fullName" placeholder="ФИО Пользователя"/>
+                        <br />
+                        <input type="email" style="top:7%;" name="email" placeholder="Адрес Электронной Почты"/>
+                        <button type="submit" style="top:53%">Отправить</button>
+                    </form>
+                }
+                else if(AdminAction.action == ToDoAction.DeleteDialog)
+                {
+                    <form>
+                        <input type="text" style="top:0%;" placeholder="ФИО Пользователя"/>
+                        <br />
+                        <input type="email" style="top:7%;" placeholder="Адрес Электронной Почты"/>
+                        <button type="submit" style="top:53%">Отправить</button>
+                    </form>
+                }
+                else if(AdminAction.action == ToDoAction.FindMessageByInput)
+                {
+                    <form>
+                        <input type="text" style="top:0%;" placeholder="Текст сообщения"/>
+                        <button type="submit" style="top:46%">Отправить</button>
+                    </form>
+                }
+            </div>
         </div>
 
     </div>
